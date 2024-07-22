@@ -26,7 +26,7 @@ export default function AddNotice() {
 
 
       const response = await axios.post(
-        'http://localhost:8000/api/notice/creationnotice',
+        'https://puoldschool-be.onrender.com/api/notice/creationnotice',
         formData,
         {
           headers: {
