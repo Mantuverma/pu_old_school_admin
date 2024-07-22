@@ -28,7 +28,7 @@ export default defineConfig(({ mode }) => {
       loader: 'jsx',
       include: /src\/.*\.jsx?$/,
       exclude: [],
-      workerThreads: false,
+
     },
     optimizeDeps: {
       force: true,
