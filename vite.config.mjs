@@ -48,7 +48,8 @@ export default defineConfig(({ mode }) => {
       extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue', '.scss'],
     },
     server: {
-      port: 3000,
+      host: '0.0.0.0', // Bind to 0.0.0.0
+      port: parseInt(process.env.PORT) || 3000, // Use PORT environment variable
       proxy: {
         // https://vitejs.dev/config/server-options.html
       },
