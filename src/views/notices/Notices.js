@@ -13,6 +13,19 @@ const Notices = () => {
 
   // const handleModalOpen = () => setShowModal(true)
   // const handleModalClose = () => setShowModal(false)
+  const handleDelete = async (noticeId) => {
+    try {
+      const response = await axios.delete(`https://puoldschool-be.onrender.com/api/notice/deletenotice/${noticeId}`);
+      console.log(response);
+      console.log(response.data)
+      const updatedNotices = notices.filter(notice => notice._id !== noticeId);
+      setNotices(updatedNotices);
+      return response;
+    } catch (error) {
+      console.error('Error Deleting Notice : ', error);
+    }
+  }
+
   useEffect(() => {
     const fetchNotices = async () => {
       try {
@@ -49,6 +62,7 @@ const Notices = () => {
                   <th>End Date</th>
                   <th>Status</th>
                   <th>View</th>
+                  <th>Delete</th>
                 </tr>
               </thead>
               <tbody>
@@ -68,6 +82,9 @@ const Notices = () => {
                         setVisibleModal={setVisibleModal}
                         notice={notice}
                       />
+                    </td>
+                    <td>
+                      <CButton color="danger" onClick={() => handleDelete(notice._id)}>Delete</CButton>
                     </td>
                   </tr>
                 ))}
