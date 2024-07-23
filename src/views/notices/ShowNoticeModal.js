@@ -10,6 +10,7 @@ import {
 } from '@coreui/react'
 
 const ShowNoticeModal = ({ visibleModal, setVisibleModal, notice }) => {
+
   return (
     <>
       <CModal
@@ -25,8 +26,10 @@ const ShowNoticeModal = ({ visibleModal, setVisibleModal, notice }) => {
           {notice && (
             <div className="ms-2 me-2">
               <div className="d-flex justify-content-center">
+
                 <CImage
-                  src={notice.imageUrl}
+                  src={notice.noticeImage}
+
                   alt="notice"
                   style={{ maxWidth: '100%', height: 'auto' }}
                 />
@@ -47,7 +50,7 @@ const ShowNoticeModal = ({ visibleModal, setVisibleModal, notice }) => {
         </CModalBody>
         <CModalFooter>
           <CButton color="danger" onClick={() => setVisibleModal(false)}>
-            Reject
+            Close
           </CButton>
         </CModalFooter>
       </CModal>
